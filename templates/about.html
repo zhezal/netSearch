@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<div class="d-flex justify-content-center align-items-center">
+    <h3>Я не знаю, что сюда написать</h3>
+</div>
+<img src="{{ url_for('static', filename='images/Network-PNG-HD.png')}}" class="center-img" />
+
+{% endblock %}

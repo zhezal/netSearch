@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+{% if current_user.is_authenticated %}
+<div class="alert alert-success mx-2 my-1" role="alert"><span id="vlan_relevance">{{ vlan_ver_msg }}</span>
+    <button id="updateVlanInfo" class="btn btn-outline-primary" type="button">
+        <!-- <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> -->
+        <span role="status" id="span-update-button-name">Обновить</span>
+    </button>
+</div>
+
+<form action="" method="post" class="form-contact mx-3 my-2" id="dc_form">
+    {{ form.hidden_tag() }}
+
+    {{form.radio.label()}}
+    {% for subfield in form.radio %}
+    <!-- {{ subfield }} {{ subfield.label }} {{subfield.data }} -->
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="DCRadios" value="{{ subfield.data }}">
+        <label class="form-check-label" for="DCRadios">{{ subfield.label }}</label>
+    </div>
+
+    {% endfor %}
+
+    {% if form.select %}
+    <p>{{ form.select.label() }} {{ form.select(id="select-vlan", class="form-select form-select-sm",
+        style="width:250px;") }}</p>
+    {% endif %}
+
+    <p>{{ form.submit(id="startbtn",class="btn btn-outline-primary btn-lg") }}</p>
+</form>
+
+<div id="log_stream" class="mx-3 my-1"></div>
+
+<div hidden id="progressBarDiv" , class="mx-auto mb-5" , style="width: 70%">
+    <h4>Получаем информацию</h4>
+    <p id="progressBarDoneInfo"></p>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="40"
+            aria-valuemin="0" aria-valuemax="100" style="width:0%" id="progressBarLine">
+            0%
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='/js/socket.io.min.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/colorLogs.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/io.operations.js') }}"></script>
+{% endif %}
+{% endblock %}

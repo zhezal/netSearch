@@ -1,0 +1,172 @@
+
+/* выравнивание картинки по центру */
+.center-img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  width: 50%;
+  max-width: 720px;
+}
+
+
+.no_resize_img {
+  max-height: 48px;
+  margin: 10px 10px;
+}
+
+
+.flash {
+	padding: 12px;
+	border-radius: 3px;
+	font-size: 1.2rem;
+	margin-bottom: 16px;
+	border-width: 2px;
+	border-style: solid;
+  margin-top: 10px;
+  }
+
+  .flash.error {
+	border-color: darkred;
+	background-color: red;
+	color: white;
+  }
+
+  .flash.success {
+	border-color: orange;
+	background-color: greenyellow;
+	color: black;
+  }
+
+.flash.warning {
+  border-color: DimGrey;
+  background-color: Lavender;
+  color: black;
+  }
+
+pre {
+  background: #eee;
+  border-left: 10px solid #9684A3;
+  border-radius: 10px;
+  padding: 10px;
+  letter-spacing: .5px;
+  font-size: 10pt;
+  color: #000;
+}
+
+
+.div_db.info {
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  border-width: 2px;
+  border-style: solid;
+  margin-top: 10px;
+  border-color: DimGrey;
+  background-color: Lavender;
+  color: black;
+  }
+
+.div_db.error {
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  border-width: 2px;
+  border-style: solid;
+  margin-top: 10px;
+  border-color: darkred;
+  background-color: LightSalmon;
+  color: black;
+  }
+
+
+.ztable {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-collapse: collapse;
+  outline: 3px solid NavajoWhite;
+  font-size: 15px;
+  background: #fff!important;
+}
+.ztable th {
+  font-weight: bold;
+  padding: 7px;
+  background: NavajoWhite;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid NavajoWhite;
+}
+.ztable td {
+  padding: 7px;
+  border: none;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  font-size: 15px;
+}
+.ztable tbody tr:nth-child(even){
+  background: #f8f8f8!important;
+}
+
+.hr-vertical-lines {
+	margin: 20px 0;
+	padding: 0;
+	height: 10px;
+	border: none;
+	color: orange;
+	background-image: linear-gradient(90deg, orange, orange 33.33%, transparent 33.33%, transparent 100%);
+	background-size: 3px 100%;
+}
+
+.hr-dotted {
+	margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 2px dotted #ddd;
+}
+
+.progress-container {
+  text-align:left;
+}
+
+.greyProgress {
+  width: 100%;
+  background-color: LightGray;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15px;
+  display:inline;
+
+}
+
+.greenBar {
+  width: 0%;
+  height: 30px;
+  background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  height: 15px;
+  line-height:13px;
+  vertical-align: middle;
+  display:inline;
+}
+
+.vlan-relevance{
+  padding: 12px;
+	border-radius: 3px;
+	font-size: 1.2rem;
+	margin-bottom: 16px;
+	border-width: 2px;
+	border-style: solid;
+  margin-top: 10px;
+  border-color: DimGrey;
+  background-color: Lavender;
+  color: black;
+  }

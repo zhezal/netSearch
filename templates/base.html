@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- SEO -->
+  <meta name="description" content="noc netSearch">
+  <meta name="keywords" content="noc, network">
+  <meta name="author" content="zhezal">
+  <!-- For mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- For mobile & no resize -->
+  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <!-- Use latest version of IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- No scripts tag -->
+  <noscript>Please switch on scripts in your browser!</noscript>
+
+  <title>{{ title }}</title>
+  <link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+
+
+  {%- block mainmenu -%}
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#DCDCDC;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">netSearch</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          {% for m in menu -%}
+          <a class="nav-link active" aria-current="page" href="{{m.url}}">{{m.title}}</a>
+          {% endfor -%}
+        </div>
+      </div>
+    </div>
+    {% if current_user.is_authenticated %}
+    <div class="navbar-nav">
+      <a class="nav-link active" href="#">{{ current_user.username }}</a>
+      <a class="nav-link active" href="{{ url_for('logout') }}"><span
+          class="btn btn-outline-danger btn-sm">Logout</span></a>
+    </div>
+    {% endif %}
+  </nav>
+
+  {% endblock mainmenu -%}
+
+  {% for cat, msg in get_flashed_messages(True) %}
+  {% if cat == "success" %}
+  {% set css_class = "alert alert-success" %}
+  {% elif cat == 'error' %}
+  {% set css_class = "alert alert-danger" %}
+  {% elif cat == 'warning' %}
+  {% set css_class = "alert alert-warning" %}
+  {% endif %}
+
+  <div class="{{ css_class }} mx-1 my-1">{{msg}}</div>
+  {% endfor %}
+
+  {% block content -%}
+  {% endblock content -%}
+
+</body>
+</html>

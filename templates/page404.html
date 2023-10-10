@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+<br>
+<center><span>Страница не найдена, вернуться на <a href="/index">главную</a> страницу</span></center>
+<img src="{{ url_for('static', filename='images/404_cat.png')}}" class="center-img" />
+{% endblock %}

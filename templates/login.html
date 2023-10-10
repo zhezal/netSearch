@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ super() }}
+
+<div class="d-flex justify-content-center align-items-center">
+	<form action="" method="post" class="form-horizontal mx-2 my-1">
+		{{ form.hidden_tag() }}
+
+		{% if form.username.errors %}
+		{{ form.username(class="form-control form-control-lg is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.username.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+
+		{% else %}
+		<div class="mb-3">
+			<label for="LoginInput" class="form-label">{{ form.username.label }}</label>
+			{{ form.username(class="form-control", id="LoginInput", style="width:300px") }}
+			<!-- <input type="email" class="form-control" id="LoginInput" aria-describedby="emailHelp"> -->
+			<div id="LoginInput" class="form-text">логин для авторизации на сетевых устройствах.</div>
+		</div>
+		{% endif %}
+
+		{% if form.password.errors %}
+		{{ form.password(class="form-control form-control-lg is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.password.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+
+		</div>
+		{% else %}
+
+		<div class="mb-3">
+			<label for="InputPassword" class="form-label">{{form.password.label}}</label>
+			{{ form.password(class="form-control", id="InputPassword", style="width:300px") }}
+		</div>
+		{% endif %}
+
+		<div class="mb-3 form-check">
+			{{ form.remember(class="form-check-input", id="rememberMe") }}
+			<label class="form-check-label" for="rememberMe">{{ form.remember.label }}</label>
+		</div>
+
+		{{ form.submit(class="btn btn-primary") }}
+	</form>
+</div>
+{% endblock %}
